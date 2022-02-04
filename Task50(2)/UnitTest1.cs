@@ -54,7 +54,7 @@ namespace Task50
         [Test, Order(3)]
         public void Task7()
         {
-            //Task6
+            //Task7
 
             driver.Navigate().GoToUrl("https://demo.seleniumeasy.com/dynamic-data-loading-demo.html");
 
@@ -64,6 +64,20 @@ namespace Task50
             ExpectedConditions.ElementIsVisible(By.XPath("//*[@id='loading']/br[2]"));
 
         }
+
+        [Test, Order(4)]
+        public void Task8()
+        {
+            driver.Navigate().GoToUrl("https://demo.seleniumeasy.com/bootstrap-download-progress-demo.html");
+
+            ReloadPage value = new ReloadPage(driver);
+            value.ReloadBar();
+
+            driver.FindElements(By.XPath("//*[text() = '50%']"));  //("//div[@class='percenttext']")) .size() == 0)
+            driver.Navigate().Refresh();
+
+        }
+
 
         [TestCleanup]
         public void Cleanup()
